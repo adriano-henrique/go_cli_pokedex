@@ -2,7 +2,7 @@ package repl
 
 import "fmt"
 
-func commandHelp() error {
+func commandHelp(mapConfig *MapConfig) error {
 	fmt.Println("Here is the list of available commands: ")
 	fmt.Println()
 	availableCommands := initializeCliCommands()

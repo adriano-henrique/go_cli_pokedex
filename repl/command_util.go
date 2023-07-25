@@ -3,7 +3,7 @@ package repl
 type cliCommands struct {
 	name        string
 	description string
-	callback    func() error
+	callback    func(mapConfig *MapConfig) error
 }
 
 func initializeCliCommands() map[string]cliCommands {
@@ -17,6 +17,11 @@ func initializeCliCommands() map[string]cliCommands {
 			name:        "exit",
 			description: "Exits the pokedex",
 			callback:    commandExit,
+		},
+		"map": {
+			name:        "map",
+			description: "Gets the next location areas",
+			callback:    commandMap,
 		},
 	}
 }

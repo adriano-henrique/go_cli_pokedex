@@ -6,9 +6,20 @@ import (
 	"os"
 )
 
+type MapConfig struct {
+	Next     *string
+	Previous *string
+}
+
 func SetupRepl() {
 	fmt.Println("Welcome to the Pokedex REPL")
 	scanner := bufio.NewScanner(os.Stdin)
+	initialUrl := "https://pokeapi.co/api/v2/location-area/"
+
+	mapConfig := MapConfig{
+		Next:     &initialUrl,
+		Previous: nil,
+	}
 
 	for {
 		fmt.Print("Pokedex > ")
@@ -21,7 +32,7 @@ func SetupRepl() {
 
 		for command, action := range initializeCliCommands() {
 			if command == input {
-				action.callback()
+				action.callback(&mapConfig)
 			}
 		}
 	}
