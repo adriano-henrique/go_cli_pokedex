@@ -23,5 +23,10 @@ func initializeCliCommands() map[string]cliCommands {
 			description: "Gets the next location areas",
 			callback:    commandMap,
 		},
+		"mapb": {
+			name:        "mapb",
+			description: "Gets the previous location areas",
+			callback:    commandMapb,
+		},
 	}
 }
